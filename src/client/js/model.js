@@ -68,3 +68,58 @@ Topic.propTypes = {
   topicId: PropTypes.number.isRequired,
   topicName: PropTypes.string.isRequired
 };
+
+/**
+ * A building object.
+ */
+export class Building {
+  /**
+   * Creates a new Building object.
+   * @param {string} buildingName The building name.
+   * @param {string} meterName The name of the meter associated with the buidling.
+   */
+  constructor(buildingName, meterName) {
+    this.buildingName_ = buildingName;
+    this.meterName_ = meterName;
+  }
+  get buildingName() {
+    return this.buildingName_;
+  }
+  
+  get meterName() {
+    return this.meterName_;
+  }
+}
+
+Building.propTypes = {
+  buildingName: PropTypes.string.isRequired,
+  meterName: PropTypes.string.isRequired
+};
+
+/** 
+ * A Metric object
+ */
+export class Metric {
+  /**
+   * Creates a new Metric object.
+   * @param {string} metricName The metric name.
+   * @param {string} unit The unit of the metric.
+   */
+  constructor(metricName, unit) {
+    this.metricName_ = metricName;
+    this.unit_ = unit;
+  }
+  get metricName() {
+    return this.metricName_;
+  }
+  
+  get unit() {
+    return this.unit_;
+  }
+}
+
+Metric.propTypes = {
+  metricName: PropTypes.string.isRequired,
+  unit: PropTypes.string.isRequired
+};
+
