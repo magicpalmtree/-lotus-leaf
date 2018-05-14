@@ -22,6 +22,8 @@ import { MenuItem } from 'material-ui/Menu';
 import { withStyles } from 'material-ui/styles';
 import Tooltip from 'material-ui/Tooltip';
 import InfoIcon from 'material-ui-icons/Info';
+import Building from './model.js'
+import Metric from './model.js'
 
 const styles = (theme) => ({
   topicSelect: {
@@ -54,12 +56,19 @@ class ChartOptions extends React.Component {
    */
   render() {
     const { classes } = this.props;
-
+    const buildingStrings = new Set(this.props.topics.map((e) => {
+      var parts = e.topicName.split('/');
+      return parts[1] + '/' + parts[2];
+    }));
+    const metricString =  new Set(this.props.topics.map((e) => e.topicName.split('/')[3]));
+    //const b = new Building("a", "b");
     // Create topic menu items.
     const topicMenuItems = this.props.topics.map((e) => (
-      <MenuItem key={e.topicId} value={e.topicId}>{e.topicName}</MenuItem>
+      <MenuItem key={e.topicId} value={e.topicId}>{e.topicName.split("/")[1]}</MenuItem>
     ));
-
+    //debugging
+    //const topicMenuItems2 = Array.from(new Set(topicMenuItems));
+    //console.log("test");
     return (
       <div>
         <form>
