@@ -75,7 +75,7 @@ class ChartOptions extends React.Component {
           <Grid container alignItems="flex-start">
             <Grid xs={12} item>
               <FormControl>
-                <InputLabel>Topic</InputLabel>
+                <InputLabel>Building</InputLabel>
                 <Select
                   multiple
                   className={classes.topicSelect}
@@ -84,7 +84,22 @@ class ChartOptions extends React.Component {
                   {topicMenuItems}
                 </Select>
               </FormControl>
-              <Tooltip title="Select the meter you would like to receive data from. You may select multiple to overlap data.">
+              <Tooltip title="Select the building(s) you would like to view information for.">
+                <InfoIcon />
+              </Tooltip>
+            </Grid>
+            <Grid xs={12} item>
+              <FormControl>
+                <InputLabel>Metric</InputLabel>
+                <Select
+                  multiple
+                  className={classes.topicSelect}
+                  value={this.props.selectedTopicIds}
+                  onChange={this.props.onTopicChange}>
+                  {topicMenuItems}
+                </Select>
+              </FormControl>
+              <Tooltip title="Select the building(s) you would like to view information for.">
                 <InfoIcon />
               </Tooltip>
             </Grid>
